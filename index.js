@@ -72,3 +72,41 @@ const sumOfNotDivisbleByTen = () => {
 };
 
 console.log(sumOfNotDivisbleByTen());
+
+const gNum = (num1, num2, num3, num4) => {
+  if (
+    typeof num1 !== "number" ||
+    typeof num2 !== "number" ||
+    typeof num3 !== "number" ||
+    typeof num4 !== "number"
+  ) {
+    return null;
+  } else if (num1 === num2 && num2 === num3 && num3 === num4) {
+    return "all integers are equal";
+  } else if (
+    (num1 === num2 && num2 === num3) ||
+    (num1 === num2 && num2 === num4) ||
+    (num1 === num3 && num3 === num4) ||
+    (num2 === num3 && num3 === num4)
+  ) {
+    return "three integers are equal";
+  } else if (
+    num1 === num2 ||
+    num1 === num3 ||
+    num1 === num4 ||
+    num2 === num3 ||
+    num2 === num4 ||
+    num3 === num4
+  ) {
+    return "two integers are equal";
+  } else {
+    return Math.max(num1, num2, num3, num4);
+  }
+};
+
+// Example usage:
+console.log(gNum(5, 7, 3, 7)); // Output: "two integers are equal"
+console.log(gNum(5, 5, 5, 5)); // Output: "all integers are equal"
+console.log(gNum(10, 3, 10, 10)); // Output: "three integers are equal"
+console.log(gNum(8, 4, 9, 3)); // Output: 9
+console.log(gNum(2, 3, 4, "5")); // Output: null (non-integer argument)
